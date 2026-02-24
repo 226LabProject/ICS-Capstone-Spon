@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://deepblue.camosun.bc.ca/~C0551029/YR1-SM1-Web/portfolio/ -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICS Capstone Meeting & Fundraising Plan</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+
+    <style>
+        .hero-image {
+            width: 100%;
+            height: 33vh;
+            /* 1/3 of viewport height */
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* fills without distortion */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="top">
+        <h1>Sponsorship/Mission page </h1>
+    </header>
+
+    <!-- FULL WIDTH HERO IMAGE -->
+    <div class="hero-image">
+        <img src="stand-in.jpg" alt="Capstone Event Preview">
+    </div>
+
+
+    <main class="grid" style="gap: 1.25rem">
+
+        <section>
+            <h2>Why Are We Doing This?</h2>
+            <p>
+                We want to invite you to a celebration showcasing what we have learned in the
+                Information &amp; Computer Systems Program at Camosun College.
+            </p>
+            <p>
+                This is a huge moment of pride for us, and we would love to celebrate it in a
+                downtown venue with the community.
+            </p>
+            <p>
+                To make this happen, we are fundraising and asking for sponsors
+                to help cover the remaining venue and event expenses.
+            </p>
+        </section>
+
+        <section id="sponsor-levels">
+            <h2>Sponsorship Levels</h2>
+
+            <div class="sponsor-level">
+                <h3>Level 1 — $150</h3>
+                <ul>
+                    <li>Listed on our “Thank You Sponsors” page in the event booklet (text).</li>
+                </ul>
+            </div>
+
+            <div class="sponsor-level">
+                <h3>Level 2 — $300</h3>
+                <ul>
+                    <li>Listed on our “Thank You Sponsors” page in the event booklet (logo + text).</li>
+                </ul>
+            </div>
+
+            <div class="sponsor-level">
+                <h3>Level 3 — $500</h3>
+                <ul>
+                    <li>Listed on our “Thank You Sponsors” page in the event booklet (logo + text).</li>
+                    <li>Included in sponsor slideshow with logo and description during the event.</li>
+                    <li>Logo included on event signage.</li>
+                </ul>
+            </div>
+
+            <div class="sponsor-level">
+                <h3>Level 4 — $1,000 <span class="note">(1 sponsor)</span></h3>
+                <ul>
+                    <li>Listed on our “Thank You Sponsors” page in the event booklet (logo + text).</li>
+                    <li>Logo included on event signage.</li>
+                    <li>Dedicated page in the event booklet.</li>
+                    <li>Special dessert feature on the event day for Key sponsor only.</li>
+                </ul>
+            </div>
+        </section>
+
+
+
+<section id="sponsor-form">
+    <h2>Sponsorship Interest Form</h2>
+
+    <p>
+        Interested in sponsoring? Fill out the form below and we’ll follow up.
+    </p>
+
+    <form id="sponsorshipForm" class="form" action="#" method="post" enctype="multipart/form-data">
+
+        <!-- Company -->
+        <div class="field">
+            <label for="companyName">Company / Organization Name <span aria-hidden="true">*</span></label>
+            <input id="companyName" name="companyName" type="text" required autocomplete="organization" />
+        </div>
+
+
+
+        <!-- Email + Phone -->
+        <div class="field two-col">
+            <div>
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+
+            <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+        </div>
+
+        <!-- Sponsorship Level -->
+        <div class="field two-col">
+
+
+            <div>
+                <label for="amount">Suggested Amount (CAD)<span aria-hidden="true">*</span></label>
+                <input id="amount" name="amount" type="text" inputmode="numeric" placeholder="$" />
+                <p class="help">You can edit this amount if you’d like to customize a sponsorship.</p>
+            </div>
+
+                        <div>
+                            <label for="level">Sponsorship Level </label>
+                            <select id="level" name="level" required>
+                                <option value="" selected disabled>Select a level…</option>
+                                <option value="level1" data-amount="150">Level 1 — $150</option>
+                                <option value="level2" data-amount="300">Level 2 — $300</option>
+                                <option value="level3" data-amount="500">Level 3 — $500</option>
+                                <option value="level4" data-amount="1000">Level 4 — $1,000 (1 sponsor)</option>
+                            </select>
+                        </div>
+
+
+        </div>
+
+        <!-- Logo -->
+        <div class="field">
+            <label for="logo">Company Logo (optional)</label>
+            <input id="logo" name="logo" type="file" accept="image/*" />
+            <p class="help">If your sponsorship includes logo placement, you can upload it here.</p>
+        </div>
+
+        <!-- Notes -->
+        <div class="field">
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" name="notes" rows="4"
+                placeholder="Anything we should know? (e.g., preferred name, website link, special requests)"></textarea>
+        </div>
+
+        <!-- Preferred Payment -->
+        <div class="field">
+            <label>Preferred Payment Method</label>
+            <div class="radio-row">
+                <label><input type="radio" name="payment" value="invoice" /> Invoice</label>
+                <label><input type="radio" name="payment" value="etransfer" /> transfer</label>
+                <label><input type="radio" name="payment" value="cheque" /> Cheque</label>
+            </div>
+        </div>
+
+        <!-- Spam trap (hidden) -->
+        <div class="field honeypot" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button class="btn" type="submit">Submit Sponsorship Interest</button>
+
+        <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+        <p class="help small">
+            After you submit, we’ll contact you with payment instructions and can provide an invoice if needed.
+        </p>
+    </form>
+</section>
+
+        
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
