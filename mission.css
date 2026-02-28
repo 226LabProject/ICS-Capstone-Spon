@@ -38,11 +38,18 @@ a:hover { text-decoration: underline; }
 ============================================================ */
 .hero {
   background: var(--teal);
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   max-height: 48vh;
   min-height: 32vh;
   overflow: hidden;
+}
+
+.hero-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .hero-text {
@@ -67,6 +74,7 @@ a:hover { text-decoration: underline; }
 }
 
 .hero-image {
+  max-height: 52vh;
   overflow: hidden;
 }
 
@@ -74,7 +82,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   max-width: 80vh;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
   display: block;
   opacity: 0.92;
 }
