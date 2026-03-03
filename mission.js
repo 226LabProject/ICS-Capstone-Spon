@@ -184,9 +184,31 @@ function initSponsorForm() {
       return;
     }
 
-    // Prevent double-submit
+    e.preventDefault();
     submitBtn.disabled    = true;
     submitBtn.textContent = "Sending…";
+
+    // Submit via fetch with FormData so file uploads (logo) are included
+    const formData = new FormData(form);
+    const nextUrl  = formData.get("_next") || (window.location.origin + window.location.pathname + "?success=1#sponsor-form");
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData
+      // Do not set Content-Type: browser sets multipart/form-data with boundary
+    })
+      .then(function (res) {
+        if (res.ok || res.redirected) {
+          window.location.href = nextUrl;
+        } else {
+          throw new Error("Submission failed");
+        }
+      })
+      .catch(function () {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = "Submit Sponsorship Interest";
+        showError("Something went wrong sending your form. Please try again or email us at events@icscapstone.ca.");
+      });
   });
 
   function showSuccess() {
