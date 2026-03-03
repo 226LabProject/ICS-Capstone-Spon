@@ -123,26 +123,20 @@ function initSponsorForm() {
 
   if (!form || !statusEl || !submitBtn) return;
 
-  // Handle redirects from submit.php via query params
-  const params = new URLSearchParams(window.location.search);
+  // FormSubmit.co redirect back to this page with success param
+  let nextInput = form.querySelector('input[name="_next"]');
+  if (!nextInput) {
+    nextInput = document.createElement("input");
+    nextInput.type  = "hidden";
+    nextInput.name  = "_next";
+    form.appendChild(nextInput);
+  }
+  nextInput.value = window.location.origin + window.location.pathname + "?success=1#sponsor-form";
 
+  // Handle redirect back from FormSubmit.co
+  const params = new URLSearchParams(window.location.search);
   if (params.get("success") === "1") {
     showSuccess();
-    history.replaceState({}, "", window.location.pathname + "#sponsor-form");
-  }
-
-  if (params.get("error") === "validation") {
-    showError("Some required fields were missing or invalid. Please check your submission and try again.");
-    history.replaceState({}, "", window.location.pathname + "#sponsor-form");
-  }
-
-  if (params.get("error") === "send") {
-    showError("Your submission was received but we had trouble sending the confirmation email. Please contact us directly at ics.capstone.club@gmail.com.");
-    history.replaceState({}, "", window.location.pathname + "#sponsor-form");
-  }
-
-  if (params.get("error") === "save") {
-    showError("We were unable to save your submission due to a server error. Please contact us directly at ics.capstone.club@gmail.com and we'll get you sorted out.");
     history.replaceState({}, "", window.location.pathname + "#sponsor-form");
   }
 
